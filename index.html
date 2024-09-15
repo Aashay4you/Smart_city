@@ -4,195 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CO2 Prediction</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #a8dadc, #457b9d);
-            color: #1d3557;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        form {
-            background-color: #f1faee;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 100%;
-            text-align: left;
-        }
-
-        h2 {
-            color: #e63946;
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            color: #457b9d;
-            font-size: 1.1rem;
-            margin: 10px 0;
-        }
-
-        input, select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, select:focus {
-            border-color: #457b9d;
-            outline: none;
-        }
-
-        button {
-            background-color: #e63946;
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 1rem;
-            border-radius: 8px;
-            width: 100%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #d62839;
-        }
-
-        select {
-            background-color: white;
-        }
-
-        select:hover {
-            background-color: #f1faee;
-        }
-
-        #research, #second, #third {
-            width: 100%;
-        }
-
-        .container {
-            width: 100%;
-            margin-left:600px;        }
-
-        .form-section {
-            margin-bottom: 25px;
-        }
-    </style>
+    <title>C02</title>
+    
 </head>
 
 <body>
-    <div class="container">
+
+    <div style="font-size: 20px;">
         <form action="{{ url_for('predict')}}" method="post">
-            <h2>Predictive CO2 Emission</h2>
+            <h2>Predictive Co2</h2>
 
-            <div class="form-section">
-                <h3>Engine Size</h3>
-                <input id="second" name="Engine_Size" required="required">
-            </div>
 
-            <div class="form-section">
-                <h3>Cylinders</h3>
-                <input id="third" name="Cylinders" required="required">
-            </div>
+            
+            
+            <h3>Engine Size</h3><br><input id="second" name="Engine_Size" required="required">            
+            <h3>Cylinders</h3><input id="third" name="Cylinders" required="required">            
+            <h3>Fuel Consumption City (L/100 km) </h3><br><input id="third" name="Fuel_Consumption_City" required="required">            
+            <h3>Fuel Consumption Hwy  (L/100 km) </h3><br><input id="third" name="Fuel_Consumption_Hwy" required="required">            
+            <h3>Fuel Consumption Comb (L/100 km) </h3><br><input id="third" name="Fuel_Consumption_Comb" required="required">            
+            <h3>Fuel Consumption Comb (mpg) </h3><br><input id="third" name="Fuel_Consumption_Comb_mpg" required="required">                              
+           
+           <!--Fuel Type -->
+            
+            <h3>Fuel Types</h3><br><select name="Fuel_Type" id="research" required="required">
+                <option value="Type_E">Type E</option>
+                <option value="Type_X">Type X</option>
+                <option value="Type_Z">Type Z</option>
+            </select>
+           
+           
+           <!--Transmission-->
+            <h3>Transmission type</h3><br><select name="Transmission" id="research" required="required">
+                <option value="A4">A4</option>
+                <option value="A5">A5</option>
+                <option value="A6">A6</option>
+                <option value="A7">A7</option>
+                <option value="A8">A8</option>
+                <option value="A9">A9</option>
+                <option value="AM5">AM5</option>
+                <option value="AM6">AM6</option>
+                <option value="AM7">AM7</option>
+                <option value="AM8">AM8</option>
+                <option value="AM9">AM9</option>
+                <option value="AS4">AS4</option>
+                <option value="AS5">AS5</option>
+                <option value="AS6">AS6</option>
+                <option value="AS7">AS7</option>
+                <option value="AS8">AS8</option>
+                <option value="AS9">AS9</option>
+                <option value="AS10">AS10</option>
+                <option value="AV">AV</option>
+                <option value="AV6">AV6</option>
+                <option value="AV7">AV7</option>
+                <option value="AV8">AV8</option>
+                <option value="AV10">AV10</option>
+                <option value="M5">M5</option>
+                <option value="M6">M6</option>
+                <option value="M7">M7</option>
+            </select>
 
-            <div class="form-section">
-                <h3>Fuel Consumption City (L/100 km)</h3>
-                <input id="third" name="Fuel_Consumption_City" required="required">
-            </div>
+           
+           <!--Make-->
+           
+            <h3>Make</h3><br><select name="Make" id="research" required="required">
+                <option value="Luxury">Luxury</option>
+                <option value="Premium">Premium</option>
+                <option value="Sports">Sports</option>
+            </select>
 
-            <div class="form-section">
-                <h3>Fuel Consumption Hwy (L/100 km)</h3>
-                <input id="third" name="Fuel_Consumption_Hwy" required="required">
-            </div>
 
-            <div class="form-section">
-                <h3>Fuel Consumption Comb (L/100 km)</h3>
-                <input id="third" name="Fuel_Consumption_Comb" required="required">
-            </div>
+           <!--Vichle Class-->
+            <h3>Vechicle Class</h3><br><select name="Vehicle_Class" id="research" required="required">
+                <option value="SUV">SUV</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Truck">Truck</option>                
+            </select>
 
-            <div class="form-section">
-                <h3>Fuel Consumption Comb (mpg)</h3>
-                <input id="third" name="Fuel_Consumption_Comb_mpg" required="required">
-            </div>
-
-            <div class="form-section">
-                <h3>Fuel Types</h3>
-                <select name="Fuel_Type" id="research" required="required">
-                    <option value="Type_E">Type E</option>
-                    <option value="Type_X">Type X</option>
-                    <option value="Type_Z">Type Z</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <h3>Transmission type</h3>
-                <select name="Transmission" id="research" required="required">
-                    <option value="A4">A4</option>
-                    <option value="A5">A5</option>
-                    <option value="A6">A6</option>
-                    <option value="A7">A7</option>
-                    <option value="A8">A8</option>
-                    <option value="A9">A9</option>
-                    <option value="AM5">AM5</option>
-                    <option value="AM6">AM6</option>
-                    <option value="AM7">AM7</option>
-                    <option value="AM8">AM8</option>
-                    <option value="AM9">AM9</option>
-                    <option value="AS4">AS4</option>
-                    <option value="AS5">AS5</option>
-                    <option value="AS6">AS6</option>
-                    <option value="AS7">AS7</option>
-                    <option value="AS8">AS8</option>
-                    <option value="AS9">AS9</option>
-                    <option value="AS10">AS10</option>
-                    <option value="AV">AV</option>
-                    <option value="AV6">AV6</option>
-                    <option value="AV7">AV7</option>
-                    <option value="AV8">AV8</option>
-                    <option value="AV10">AV10</option>
-                    <option value="M5">M5</option>
-                    <option value="M6">M6</option>
-                    <option value="M7">M7</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <h3>Make</h3>
-                <select name="Make" id="research" required="required">
-                    <option value="Luxury">Luxury</option>
-                    <option value="Premium">Premium</option>
-                    <option value="Sports">Sports</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <h3>Vehicle Class</h3>
-                <select name="Vehicle_Class" id="research" required="required">
-                    <option value="SUV">SUV</option>
-                    <option value="Sedan">Sedan</option>
-                    <option value="Truck">Truck</option>
-                </select>
-            </div>
-
-            <button id="sub" type="submit">Calculate CO2</button>
+            <br><br><button id="sub" type="submit ">Calculate Co2</button>
+            <br>
 
         </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
     </div>
+
+
+
+
+    <style>
+        body {
+            background-image: image-url('/static/co2.jpg');
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 110px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+
+
+
+       
+    </style>
 </body>
 
 </html>
