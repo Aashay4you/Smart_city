@@ -14,7 +14,8 @@ body {
 .logo {
     position: fixed;
     top: 0px;
-    right: -30px;
+    left: 95%;
+    right: auto;
     z-index: 1000; /* Ensures the logo is above other elements */
 }
 
