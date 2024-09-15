@@ -7,10 +7,25 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.26/build/spline-viewer.js"></script>
     <spline-viewer url="https://prod.spline.design/SijuAeek5WoSFm79/scene.splinecode"></spline-viewer>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- CSS for positioning the logo -->
+    <style>
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; /* Ensure the logo is above other content */
+        }
+    </style>
 </head>
 <body>
+    <!-- Logo Div at the center top -->
+    <div class="logo">
+        <img src="bgless project logo.png" ogo.png" alt="Smart City Logo" width="300"> <!-- Adjust the width as needed -->
+    </div>
+
     <div class="rental">
-        
         <a href="bike.html"><img src="vehicle.png" alt="City Sustainability Logo"></a>
     </div>
 
