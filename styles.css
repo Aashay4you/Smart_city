@@ -29,7 +29,7 @@ body {
     position: fixed ;
     background-color: rgba(85, 255, 0, 0.8);
     top: 0px;
-    left: 50%;
+    left: 49%;
     z-index: 1000; /* Ensures the logo is above other elements */
 }
 
